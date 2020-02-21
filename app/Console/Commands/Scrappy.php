@@ -65,11 +65,17 @@ class Scrappy extends Command
         $this->output->progressStart(count($data));
         $data->each(function($record, $key) use ($newData) {
            
-            $emails=implode(',', $this->runscrapper($record[4]));
+            if($key==0){
+                $newData->put($key,$record);
+            }
+            else{
+
+            $emails=implode(',', $this->runscrapper($record[6]));
             //var_dump();
             $record[]=$emails;
             $this->output->progressAdvance();
             $newData->put($key,$record);
+        }
             
         });
         

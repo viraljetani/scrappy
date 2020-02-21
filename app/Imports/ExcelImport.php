@@ -29,6 +29,6 @@ class ExcelImport implements ToCollection, WithChunkReading, WithStartRow
      */
     public function startRow(): int
     {
-        return 2;
+        return 1;
     }
 }
